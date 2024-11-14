@@ -39,22 +39,42 @@ function mainFunction() {
 
   select.addEventListener('change' , function(){
     if(select.value === 'All items'){
-      // mainFunction()
+      mainFunction();
+      innerMain.remove();
     }
     else if(select.value === 'Food'){
-      alert('v 2')
+      list2.remove();//Drink
+      list5.remove();//Choclate
+      list7.remove();//Desserts;
+      list8.remove();//Icecream
     }
     else if(select.value === 'Dresserts'){
-      alert('v 3')
+      list1.remove();
+      list3.remove();
+      list4.remove();
+      list6.remove();
+      list9.remove();
+      list10.remove();
+      list11.remove();
     }
     else if(select.value === 'Beverages'){
-      alert('v 4')
+      list1.remove()
+      list3.remove()
+      list4.remove()
+      list5.remove()
+      list6.remove()
+      list7.remove()
+      list8.remove()
+      list9.remove()
+      list10.remove()
+      list11.remove()
     }
   })
 
   // QR BUTTON
   let qrBtn = document.createElement("button");
   qrBtn.innerHTML = "Share";
+  qrBtn.id = 'qrBtn'
   qrBtn.setAttribute("class", "btn-secondary btn-lg m-2 ");
   qrBtn.setAttribute("style", "border-radius:10px;");
   header.appendChild(qrBtn);
@@ -62,6 +82,7 @@ function mainFunction() {
   //ACCOUNT BUTTON
   let accountBtn = document.createElement("button");
   accountBtn.innerHTML = "Account";
+  accountBtn.id = 'accountBtn'
   accountBtn.setAttribute("class", "btn-secondary btn-lg m-2 ");
   accountBtn.setAttribute("style", "border-radius:10px;");
   header.appendChild(accountBtn);
@@ -82,7 +103,7 @@ function mainFunction() {
 
   //Burger
   let list1 = document.createElement("li");
-  list1.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list1.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list1.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img1 = document.createElement("img");
@@ -101,7 +122,7 @@ function mainFunction() {
 
   //DRINK
   let list2 = document.createElement("li");
-  list2.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list2.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list2.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img2 = document.createElement("img");
@@ -120,7 +141,7 @@ function mainFunction() {
 
   // BBQ'S
   let list3 = document.createElement("li");
-  list3.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list3.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list3.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img3 = document.createElement("img");
@@ -139,7 +160,7 @@ function mainFunction() {
 
   // BREADS
   let list4 = document.createElement("li");
-  list4.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list4.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list4.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img4 = document.createElement("img");
@@ -158,7 +179,7 @@ function mainFunction() {
 
   // CHOCOLATES
   let list5 = document.createElement("li");
-  list5.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list5.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list5.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img5 = document.createElement("img");
@@ -177,7 +198,7 @@ function mainFunction() {
 
   //CHICKEN
   let list6 = document.createElement("li");
-  list6.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list6.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list6.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img6 = document.createElement("img");
@@ -196,7 +217,7 @@ function mainFunction() {
 
   //DESSERT
   let list7 = document.createElement("li");
-  list7.setAttribute("style", "height:15vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list7.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list7.setAttribute("class", "d-flex");
   //IN LIST IMAGE 
   let img7 = document.createElement("img");
@@ -212,6 +233,78 @@ function mainFunction() {
     menuList(getdatadessert())
   });
 
+
+  //ICE CREAM
+  let list8 = document.createElement("li");
+  list8.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list8.setAttribute("class", "d-flex");
+  //IN LIST IMAGE 
+  let img8 = document.createElement("img");
+  img8.setAttribute("style", "height:90%; width:100px; margin:5px; border-radius:4px;");
+  img8.setAttribute("src", "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/103337/build-your-own-ice-cream-sandwich-kit-9-pack.e972c9c8819bfc245d671eaf98107247.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1");
+  list8.appendChild(img8);
+  //TITLE OF
+  let title8 = document.createElement("h4");
+  title8.setAttribute("style", "padding:5vh; 2px;");
+  title8.innerHTML = "Ice-cream's ➤";
+  list8.appendChild(title8);
+  list8.addEventListener('click', function () {
+    menuList(getdataicecream())
+  });
+
+  //PIZZA
+  let list9 = document.createElement("li");
+  list9.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list9.setAttribute("class", "d-flex");
+  //IN LIST IMAGE 
+  let img9 = document.createElement("img");
+  img9.setAttribute("style", "height:90%; width:100px; margin:5px; border-radius:4px;");
+  img9.setAttribute("src", "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/71231/wood-fired-pizza-4-pack.8818b2e71ad1149790d0c03413d11996.png?ixlib=react-9.0.2&auto=format&ar=1%3A1");
+  list9.appendChild(img9);
+  //TITLE OF
+  let title9 = document.createElement("h4");
+  title9.setAttribute("style", "padding:5vh; 2px;");
+  title9.innerHTML = "Pizza's ➤";
+  list9.appendChild(title9);
+  list9.addEventListener('click', function () {
+    menuList(getdatapizza())
+  });
+
+  //SANDWICH
+  let list10 = document.createElement("li");
+  list10.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list10.setAttribute("class", "d-flex");
+  //IN LIST IMAGE 
+  let img10 = document.createElement("img");
+  img10.setAttribute("style", "height:90%; width:100px; margin:5px; border-radius:4px;");
+  img10.setAttribute("src", "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/135494/Joe_s-KC-Z-Man-Product-6.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1");
+  list10.appendChild(img10);
+  //TITLE OF
+  let title10 = document.createElement("h4");
+  title10.setAttribute("style", "padding:5vh; 2px;");
+  title10.innerHTML = "Sandwich's ➤";
+  list10.appendChild(title10);
+  list10.addEventListener('click', function () {
+    menuList(getdatasandwich())
+  });
+
+  //SAUSGE
+  let list11 = document.createElement("li");
+  list11.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list11.setAttribute("class", "d-flex");
+  //IN LIST IMAGE 
+  let img11 = document.createElement("img");
+  img11.setAttribute("style", "height:90%; width:100px; margin:5px; border-radius:4px;");
+  img11.setAttribute("src", "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131684/choose-your-own-korean-bbq-grilling-sausage-12-pack.cf65a78dff1380f12d408831c8ef51d1.jpeg?ixlib=react-9.0.2&auto=format&ar=1%3A1");
+  list11.appendChild(img11);
+  //TITLE OF
+  let title11 = document.createElement("h4");
+  title11.setAttribute("style", "padding:5vh; 2px;");
+  title11.innerHTML = "Sausage's ➤";
+  list11.appendChild(title11);
+  list11.addEventListener('click', function () {
+    menuList(getdatasandwich())
+  });
   unOrderd.appendChild(list1);
   unOrderd.appendChild(list2);
   unOrderd.appendChild(list3);
@@ -219,6 +312,10 @@ function mainFunction() {
   unOrderd.appendChild(list5);
   unOrderd.appendChild(list6);
   unOrderd.appendChild(list7);
+  unOrderd.appendChild(list8);
+  unOrderd.appendChild(list9);
+  unOrderd.appendChild(list10);
+  unOrderd.appendChild(list11);
 }
 
 
@@ -228,6 +325,10 @@ function menuList(data) {
   //MAIN CONTAINER
   let main = document.getElementById("innermain");
 
+  let qrBtn = document.getElementById('qrBtn');
+  qrBtn.remove();
+  let accountBtn = document.getElementById('accountBtn');
+  accountBtn.remove();
   let select = document.querySelector("select");
   let section = document.querySelector("section");
   section.remove();
@@ -268,7 +369,7 @@ function menuList(data) {
   for (var product of data) {
     let row = document.createElement("div");
 
-    row.setAttribute("style", "width:99%; height:10vh; border:2px solid cream; margin:5px; border-radius:10px; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); display:flex;");
+    row.setAttribute("style", "width:99%; height:15vh; border:2px solid cream; margin:5px; border-radius:10px; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); display:flex; justify-content:center; align-items:center;");
     innerMain.appendChild(row);
 
     let imgUrl = document.createElement("h6");
@@ -346,7 +447,7 @@ function cartFunction() {
   cartbtn.remove();
   let section = document.getElementById("row's");
   section.remove();
-  
+   
   let innerMain = document.createElement("div");
   innerMain.setAttribute("style", "height:90vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   main.appendChild(innerMain);
@@ -425,15 +526,15 @@ function cartFunction() {
       innerMain.appendChild(placedOrder);
 
       placedOrder.addEventListener('click' , function(){
-        // PlacedOrderFunction()
+        // DetalisFunction();
       });
     }
   }
   renderCart();
 }
-// PlacedOrderFunction()
-function PlacedOrderFunction(){
-  
+DetalisFunction()
+function DetalisFunction(){
+    
 }
 
 
