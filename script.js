@@ -79,17 +79,7 @@ function mainFunction() {
   qrBtn.setAttribute("style", "border-radius:10px;");
   header.appendChild(qrBtn);
 
-  //ACCOUNT BUTTON
-  let accountBtn = document.createElement("button");
-  accountBtn.innerHTML = "Account";
-  accountBtn.id = 'accountBtn'
-  accountBtn.setAttribute("class", "btn-secondary btn-lg m-2 ");
-  accountBtn.setAttribute("style", "border-radius:10px;");
-  header.appendChild(accountBtn);
-
-
-
-
+  
   //DIV FOR MID
   let section = document.createElement("section");
   section.setAttribute("style", "height:auto; width:100%; border:0px solid blue;");
@@ -327,8 +317,7 @@ function menuList(data) {
 
   let qrBtn = document.getElementById('qrBtn');
   qrBtn.remove();
-  let accountBtn = document.getElementById('accountBtn');
-  accountBtn.remove();
+  
   let select = document.querySelector("select");
   let section = document.querySelector("section");
   section.remove();
@@ -445,14 +434,16 @@ function cartFunction() {
 
   let cartbtn = document.getElementById("cartbtn");
   cartbtn.remove();
-  let section = document.getElementById("row's");
-  section.remove();
-   
+  let rows = document.getElementById("row's");
+  rows.remove();
+
   let innerMain = document.createElement("div");
+  innerMain.id = 'cartMain'
   innerMain.setAttribute("style", "height:90vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   main.appendChild(innerMain);
 
   let totalshow = document.createElement("h6");
+  totalshow.id = 'totaltitle'
   totalshow.setAttribute("style", "text-align:right; padding:10px; font-size:3rem;");
   
   function renderCart() {
@@ -461,6 +452,7 @@ function cartFunction() {
 
     for (let i = 0; i < cartProductName.length; i++) {
       let row = document.createElement("div");
+      row.id = 'row';
       row.setAttribute("style", "width:99%; height:10vh; border:2px solid cream; margin:5px; border-radius:10px; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); display:flex;");
       innerMain.appendChild(row);
       
@@ -521,23 +513,56 @@ function cartFunction() {
     if(total){
       let placedOrder = document.createElement("button");
       placedOrder.innerHTML = `Placed order`;
+      placedOrder.id = 'orderBtn'
       placedOrder.setAttribute("style", "height:10vh; width:20%; float:right; margin:1%; border-radius:5px; text-align:center;");
       placedOrder.classList.add("btn-success");
       innerMain.appendChild(placedOrder);
 
       placedOrder.addEventListener('click' , function(){
-        // DetalisFunction();
+        DetalisFunction();
       });
     }
   }
   renderCart();
 }
-DetalisFunction()
 function DetalisFunction(){
-    
+  let main = document.getElementById('innermain');
+  //Row of cart;
+  let row = document.getElementById('cartMain');
+  row.remove();
+  
+  let innerMain = document.createElement("div");
+  innerMain.setAttribute("style", "display:flex; flex-flow:wrap row;justify-content:center; align-content: stretch; align-items:center; height:90vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8);  font-family: 'Permanent Marker', cursive; font-weight:800px; font-size:8vh");
+  main.appendChild(innerMain)
+
+
+  //CREATING PAGE
+
+  let nameFild = document.createElement("input");
+      nameFild.id = 'name'
+      nameFild.placeholder = '👤 Enter Full Name'
+      nameFild.setAttribute("style", "height:16vh; width:50vw; border-radius:10px; text-align:center;");
+      innerMain.appendChild(nameFild);
+  let nameError = document.createElement('small');
+      nameError.innerHTML = 'Error';
+      nameError.setAttribute = 'height:16vh; width:50vw; border-radius:10px; text-align:center;'
+      innerMain.appendChild(nameError);
+      nameFild.addEventListener('keypress' , ()=>{
+        let value = document.getElementById('name').value;
+        if(value.includes(' ')){
+      }
+      })
+
+  let tableNumberFild = document.createElement("input");
+      tableNumberFild.placeholder = '🍽️ Enter Table Number'
+      tableNumberFild.setAttribute("style", "height:16vh; width:50vw; border-radius:10px; text-align:center;");
+      innerMain.appendChild(tableNumberFild);
+  
+  let phoneNumberFild = document.createElement("input");
+      phoneNumberFild.placeholder = '✆ Enter Phone Number'
+      phoneNumberFild.setAttribute("style", "height:16vh; width:50vw; border-radius:10px; text-align:center;");
+      innerMain.appendChild(phoneNumberFild);  
 }
-
-
 
 
 
