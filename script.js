@@ -16,7 +16,7 @@ function mainFunction() {
 
   //CUSTIOM SELECT MENU
   let select = document.createElement("select");
-  select.setAttribute("style", "color:black; width:20%; height:7.5  vh; margin:0.5%; border-radius:15px; ");
+  select.setAttribute("style", "background-color:#808080; color:white; width:20%; height:7.5  vh; margin:0.5%; border-radius:25px; ");
   header.appendChild(select);
 
   let option1 = document.createElement("option");
@@ -76,6 +76,42 @@ function mainFunction() {
   qrBtn.setAttribute("class", "btn-secondary btn-lg m-2 ");
   qrBtn.setAttribute("style", "border-radius:10px;");
   header.appendChild(qrBtn);
+  // Add event listener for the button
+qrBtn.addEventListener('click', () => {
+  // CREATE A DISPLAY
+  let sDisplay = document.createElement("div");
+  sDisplay.setAttribute("style", `position:fixed; top:0; left:0; width:100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;`);
+  document.body.appendChild(sDisplay);
+
+  let popup = document.createElement("div");
+  popup.setAttribute("style", `background-color:rgb(227 187 216); padding: 20px; border-radius: 10px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); text-align: center; width:80%; height:90vh; `);
+  sDisplay.appendChild(popup);
+
+  let image = document.createElement('img');
+  image.setAttribute('style' , ' border-radius:5%; width:62%; height:50vh; margin:2.5%;');
+  image.src='Untitled 1.png'
+  popup.appendChild(image);
+
+  let link = document.createElement('h4');
+  link.setAttribute('style' , 'font-size:1.2rem; margin:2.5%;')
+  link.innerHTML = 'https://meennnuuuu.netlify.app/';
+  popup.appendChild(link);
+
+  let closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "Close";
+  closeBtn.setAttribute("style", `margin:2.5%; width:60%; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; `);
+  popup.appendChild(closeBtn);
+  closeBtn.addEventListener('click', () => {
+    sDisplay.remove(); // Remove the popup
+  });
+
+  // REMOVE WHEN CLICK OUTSIDE THE DISPLAY
+  sDisplay.addEventListener('click', (event) => {
+    if (event.target === sDisplay) {
+      sDisplay.remove();
+    }
+  });
+});
 
 
   //DIV FOR MID
