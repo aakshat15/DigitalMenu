@@ -4,8 +4,6 @@ function mainFunction() {
   // main.setAttribute('class' , 'container-fluid')
   main.setAttribute("style", "background-color:rgb(255 247 237); height:auto; width:100%; font-family:Rubik, sans-serif;");
 
-
-  var Dataname = [];
   let innerMain = document.createElement("div");
   innerMain.setAttribute("id", "innermain");
   // innerMain.setAttribute("class", "container");
@@ -13,7 +11,7 @@ function mainFunction() {
   main.appendChild(innerMain);
 
   let header = document.createElement("header");
-  header.setAttribute("style", " height:10vh; , width:100%; , font-size: 1.5em; display:flex; justify-content: space-between;");
+  header.setAttribute("style", "position:sticky; top:0; z-index:1000; background-color:rgb(255, 247, 237); height:10vh; width:100%; font-size:1.5em; display:flex; justify-content:space-between;");
   innerMain.appendChild(header);
 
   //CUSTIOM SELECT MENU
@@ -37,18 +35,18 @@ function mainFunction() {
   option4.innerText = "Beverages";
   select.appendChild(option4);
 
-  select.addEventListener('change' , function(){
-    if(select.value === 'All items'){
+  select.addEventListener('change', () => {
+    if (select.value === 'All items') {
       mainFunction();
       innerMain.remove();
     }
-    else if(select.value === 'Food'){
+    else if (select.value === 'Food') {
       list2.remove();//Drink
-      list5.remove();//Choclate
+      list5.remove();//Choclate 
       list7.remove();//Desserts;
       list8.remove();//Icecream
     }
-    else if(select.value === 'Dresserts'){
+    else if (select.value === 'Dresserts') {
       list1.remove();
       list3.remove();
       list4.remove();
@@ -57,7 +55,7 @@ function mainFunction() {
       list10.remove();
       list11.remove();
     }
-    else if(select.value === 'Beverages'){
+    else if (select.value === 'Beverages') {
       list1.remove()
       list3.remove()
       list4.remove()
@@ -79,7 +77,7 @@ function mainFunction() {
   qrBtn.setAttribute("style", "border-radius:10px;");
   header.appendChild(qrBtn);
 
-  
+
   //DIV FOR MID
   let section = document.createElement("section");
   section.setAttribute("style", "height:auto; width:100%; border:0px solid blue;");
@@ -93,9 +91,9 @@ function mainFunction() {
 
   //Burger
   let list1 = document.createElement("li");
-  list1.setAttribute("style", "height:15vh; cursor: pointer; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
+  list1.setAttribute("style", "height:15vh; z-index:5000; cursor: pointer;  width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family:Rubik, sans-serif;");
   list1.setAttribute("class", "d-flex");
-  //IN LIST IMAGE 
+  // IN LIST IMAGE 
   let img1 = document.createElement("img");
   img1.setAttribute("style", "height:90%; width:100px; margin:5px; border-radius:4px;");
   img1.setAttribute("src", "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/137148/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-15.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1");
@@ -317,7 +315,7 @@ function menuList(data) {
 
   let qrBtn = document.getElementById('qrBtn');
   qrBtn.remove();
-  
+
   let select = document.querySelector("select");
   let section = document.querySelector("section");
   section.remove();
@@ -445,22 +443,22 @@ function cartFunction() {
   let totalshow = document.createElement("h6");
   totalshow.id = 'totaltitle'
   totalshow.setAttribute("style", "text-align:right; padding:10px; font-size:3rem;");
-  
+
   function renderCart() {
-    innerMain.innerHTML = ""; 
-    total = 0; 
+    innerMain.innerHTML = "";
+    total = 0;
 
     for (let i = 0; i < cartProductName.length; i++) {
       let row = document.createElement("div");
       row.id = 'row';
       row.setAttribute("style", "width:99%; height:10vh; border:2px solid cream; margin:5px; border-radius:10px; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); display:flex;");
       innerMain.appendChild(row);
-      
+
       let imgOfCart = document.createElement("img");
       imgOfCart.setAttribute("style", "height:90%; width:100px; margin:2px; border-radius:6px;");
       imgOfCart.setAttribute("src", `${cartProductImg[i]}`);
       row.appendChild(imgOfCart);
-      
+
       let nameOfCart = document.createElement("h6");
       nameOfCart.setAttribute("style", "padding:20px 2px; width:50%; border:0px solid black;");
       nameOfCart.innerHTML = `${cartProductName[i]}`;
@@ -477,11 +475,11 @@ function cartFunction() {
       quantity.value = cartProductQty[i];
       quantity.setAttribute("style", "height:6vh; width:10%; margin:1%; border-radius:10px; text-align:center;");
       row.appendChild(quantity);
-      
+
       let itemTotal = basePrice * cartProductQty[i];
       priceOfCart.innerHTML = `$${itemTotal.toFixed(2)}`;
       total += itemTotal;
-      
+
       // QUANTITY UPDATE FILD
       quantity.addEventListener('input', function () {
         let newQty = parseInt(quantity.value);
@@ -490,7 +488,7 @@ function cartFunction() {
           quantity.value = cartProductQty[i];
         } else {
           cartProductQty[i] = newQty;
-          renderCart(); 
+          renderCart();
         }
       });
 
@@ -499,7 +497,7 @@ function cartFunction() {
       removeBtn.setAttribute("class", "btn-secondary btn-md m-2 ");
       removeBtn.setAttribute("style", "border-radius:10px;");
       row.appendChild(removeBtn);
-      
+
       removeBtn.addEventListener("click", function () {
         cartProductImg.splice(i, 1);
         cartProductName.splice(i, 1);
@@ -510,7 +508,7 @@ function cartFunction() {
     }
     innerMain.appendChild(totalshow);
     totalshow.innerHTML = `Total: $${total.toFixed(2)}`;
-    if(total){
+    if (total) {
       let placedOrder = document.createElement("button");
       placedOrder.innerHTML = `Placed order`;
       placedOrder.id = 'orderBtn'
@@ -518,51 +516,123 @@ function cartFunction() {
       placedOrder.classList.add("btn-success");
       innerMain.appendChild(placedOrder);
 
-      placedOrder.addEventListener('click' , function(){
+      placedOrder.addEventListener('click', function () {
         DetalisFunction();
       });
     }
   }
   renderCart();
 }
-function DetalisFunction(){
+function DetalisFunction() {
   let main = document.getElementById('innermain');
-  //Row of cart;
   let row = document.getElementById('cartMain');
   row.remove();
-  
+
   let innerMain = document.createElement("div");
-  innerMain.setAttribute("style", "display:flex; flex-flow:wrap row;justify-content:center; align-content: stretch; align-items:center; height:90vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8);  font-family: 'Permanent Marker', cursive; font-weight:800px; font-size:8vh");
-  main.appendChild(innerMain)
+  innerMain.id = 'form'; 
+  innerMain.setAttribute("style", "display:flex; flex-flow:wrap row;justify-content:center; align-content: stretch; align-items:center; height:90vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family: 'Permanent Marker', cursive; font-weight:800px; font-size:100%");
+  main.appendChild(innerMain);
 
+  let headingLable = document.createElement('label');
+  headingLable.setAttribute('style', 'width:100%; border-bottom: 5px solid grey; border-radius:30px; height:15vh; font-size:3rem; display:block; text-align:center;');
+  headingLable.innerHTML = 'Enter Details';
+  innerMain.appendChild(headingLable);
 
-  //CREATING PAGE
+  // Name Field
+  let nameField = document.createElement("input");
+  nameField.id = 'name';
+  nameField.placeholder = '👤 Enter Full Name';
+  nameField.setAttribute("style", "height:10vh; display:block; width:50vw; border-radius:10px; text-align:center;");
+  innerMain.appendChild(nameField);
 
-  let nameFild = document.createElement("input");
-      nameFild.id = 'name'
-      nameFild.placeholder = '👤 Enter Full Name'
-      nameFild.setAttribute("style", "height:16vh; width:50vw; border-radius:10px; text-align:center;");
-      innerMain.appendChild(nameFild);
   let nameError = document.createElement('small');
-      nameError.innerHTML = 'Error';
-      nameError.setAttribute = 'height:16vh; width:50vw; border-radius:10px; text-align:center;'
-      innerMain.appendChild(nameError);
-      nameFild.addEventListener('keypress' , ()=>{
-        let value = document.getElementById('name').value;
-        if(value.includes(' ')){
-      }
-      })
+  nameError.innerHTML = 'Full name must contain at least a space.';
+  nameError.setAttribute('style', 'color:red; display:none; text-align:center; width:100vw; font-size:0.5rem; margin-top: -16vh;     font-family: "Rubik", sans-serif;');
+  innerMain.appendChild(nameError);
 
-  let tableNumberFild = document.createElement("input");
-      tableNumberFild.placeholder = '🍽️ Enter Table Number'
-      tableNumberFild.setAttribute("style", "height:16vh; width:50vw; border-radius:10px; text-align:center;");
-      innerMain.appendChild(tableNumberFild);
-  
-  let phoneNumberFild = document.createElement("input");
-      phoneNumberFild.placeholder = '✆ Enter Phone Number'
-      phoneNumberFild.setAttribute("style", "height:16vh; width:50vw; border-radius:10px; text-align:center;");
-      innerMain.appendChild(phoneNumberFild);  
+  // Table Number Field
+  let tableField = document.createElement("input");
+  tableField.id = 'table';
+  tableField.placeholder = '🍽️ Enter Table Number';
+  tableField.setAttribute("style", "height:10vh; width:50vw; border-radius:10px; text-align:center;");
+  innerMain.appendChild(tableField);
+
+  let tableError = document.createElement('small');
+  tableError.innerHTML = 'Enter a table number between 1 and 10.';
+  tableError.setAttribute('style', 'color:red; display:none; text-align:center; width:100vw; font-size:0.5rem; margin-top: -16vh; font-family: "Rubik", sans-serif;');
+  innerMain.appendChild(tableError);
+
+  // Phone Number Field
+  let phoneField = document.createElement("input");
+  phoneField.id = 'phone';
+  phoneField.placeholder = '✆ Enter Phone Number';
+  phoneField.setAttribute("style", "height:10vh; width:50vw; border-radius:10px; text-align:center;");
+  innerMain.appendChild(phoneField);
+
+  let phoneError = document.createElement('small');
+  phoneError.innerHTML = 'Phone number must be 10 digits.';
+  phoneError.setAttribute('style', 'color:red; display:none; text-align:center; width:100vw; font-size:0.5rem; margin-top:-16vh; font-family: "Rubik", sans-serif;');
+  innerMain.appendChild(phoneError);
+
+  // Submit Button (Initially Hidden)
+  let submitButton = document.createElement("button");
+  submitButton.innerHTML = "Submit";
+  submitButton.setAttribute("style", "display:none; width:50vw; margin-top:20px; padding:10px 20px; border:none; border-radius:5px; background-color:green; color:white; font-size:1.5rem; cursor:pointer;");
+  innerMain.appendChild(submitButton);
+
+  submitButton.addEventListener("click", () => {
+    payemntFunction();
+  });
+
+  // VALIDATION LOGIC
+  const validateInputs = () => {
+    let nameValue = nameField.value.trim();
+    let tableValue = parseInt(tableField.value);
+    let phoneValue = phoneField.value;
+
+    let isNameValid = nameValue.split(' ').length > 1;
+    let isTableValid = tableValue >= 1 && tableValue <= 10;
+    let isPhoneValid = /^\d{10}$/.test(phoneValue);
+
+    nameError.style.display =  isNameValid ? 'none' : 'block';
+    tableError.style.display = isTableValid ? 'none' : 'block';
+    phoneError.style.display = isPhoneValid ? 'none' : 'block';
+
+    // IF ALL DETALIS ARE CORREC THEN SHOW ELSE DISPLAY ARE NONE
+    if (isNameValid && isTableValid && isPhoneValid) {
+      submitButton.style.display = 'block';
+    } else {
+      submitButton.style.display = 'none';
+    }
+  };
+
+  // Attach Input Event Listeners
+  nameField.addEventListener('input', validateInputs);
+  tableField.addEventListener('input', validateInputs);
+  phoneField.addEventListener('input', validateInputs);
 }
+
+// PAYMENT fUNCTION
+function payemntFunction() {
+  let main = document.getElementById('innermain');
+  let form = document.getElementById('form');
+  form.remove();
+
+ let innerMain = document.createElement('div');
+ innerMain.setAttribute("style", "display:flex; flex-flow:wrap row;justify-content:center; align-content: stretch; align-items:center; height:90vh; width:100%; border:2px solid white; box-shadow: 0px 5px 10px rgba(255, 182, 193, 0.8); font-family: 'Permanent Marker', cursive; font-weight:800px; font-size:100%");
+ main.appendChild(innerMain);
+
+ let heading =  document.createElement('h1');
+ heading.setAttribute('style' , 'height:10vh; width:100%;')
+ heading.innerHTML = 'PAYMENT GETWAY'
+ innerMain.appendChild(heading);
+
+  let containt = document.createElement('p');
+  containt.setAttribute('style' , 'height:10vh; width:100%;')
+  containt.innerHTML = '<h4>This Website Under the Development. This is the All Over In my Page'
+  innerMain.appendChild(containt);
+}
+
 
 
 
