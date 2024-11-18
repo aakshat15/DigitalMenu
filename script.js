@@ -11,7 +11,7 @@ function mainFunction() {
   main.appendChild(innerMain);
 
   let header = document.createElement("header");
-  header.setAttribute("style", "position:sticky; top:0; z-index:1000; background-color:rgb(255, 247, 237); height:10vh; width:100%; font-size:1.5em; display:flex; justify-content:space-between;");
+  header.setAttribute("style", `position:sticky; top:0; z-index:1000; background-color:rgb(255, 247, 237); height:10vh; width:100%; font-size:1.5em; display:flex; justify-content:space-between; @media (max-width: 600px) {display:none;}`);
   innerMain.appendChild(header);
 
   //CUSTIOM SELECT MENU
@@ -80,26 +80,27 @@ function mainFunction() {
 qrBtn.addEventListener('click', () => {
   // CREATE A DISPLAY
   let sDisplay = document.createElement("div");
-  sDisplay.setAttribute("style", `position:fixed; top:0; left:0; width:100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;`);
+  sDisplay.setAttribute("style", `position:fixed; top:0; left:0; width:100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; `);
   document.body.appendChild(sDisplay);
 
   let popup = document.createElement("div");
-  popup.setAttribute("style", `background-color:rgb(227 187 216); padding: 20px; border-radius: 10px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); text-align: center; width:80%; height:90vh; `);
+  popup.setAttribute("style", `background-color:rgb(227 187 216); padding: 20px; border-radius: 10px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); display: flex;   flex-direction: column; justify-content: space-around; align-items: center; text-align: center; width:60%; height:70vh; box-shadow:5px 15px 300px pink `);
   sDisplay.appendChild(popup);
 
   let image = document.createElement('img');
-  image.setAttribute('style' , ' border-radius:5%; width:62%; height:50vh; margin:2.5%;');
+  // image.setAttribute('style' , ' border-radius:5%; width:62%; height:50vh; margin:2.5%;');
+  image.setAttribute('class' , 'img-fluid h-50 w-60')
   image.src='Untitled 1.png'
   popup.appendChild(image);
 
   let link = document.createElement('h4');
-  link.setAttribute('style' , 'font-size:1.2rem; margin:2.5%;')
+  link.setAttribute('style' , 'font-size:1rem;')
   link.innerHTML = 'https://meennnuuuu.netlify.app/';
   popup.appendChild(link);
 
   let closeBtn = document.createElement("button");
   closeBtn.innerHTML = "Close";
-  closeBtn.setAttribute("style", `margin:2.5%; width:60%; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; `);
+  closeBtn.setAttribute("style", `margin:2.5%; width:20%; padding: 10px 20px; background-color: white; color: black; border: none; border-radius: 5px; cursor: pointer; `);
   popup.appendChild(closeBtn);
   closeBtn.addEventListener('click', () => {
     sDisplay.remove(); // Remove the popup
@@ -116,8 +117,12 @@ qrBtn.addEventListener('click', () => {
 
   //DIV FOR MID
   let section = document.createElement("section");
-  section.setAttribute("style", "height:auto; width:100%; border:0px solid blue;");
+  section.setAttribute("style", "height:auto; width:50%; border:0px solid blue;");
   innerMain.appendChild(section);
+
+  let articl = document.createElement("article");
+  articl.setAttribute("style", "height:50vh; width:50%; border:5px solid blue;");
+  innerMain.appendChild(articl);
 
   //LIST STRACTURE
   let unOrderd = document.createElement("ul");
