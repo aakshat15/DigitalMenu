@@ -117,13 +117,9 @@ qrBtn.addEventListener('click', () => {
 
   //DIV FOR MID
   let section = document.createElement("section");
-  section.setAttribute("style", "height:auto; width:50%; border:0px solid blue;");
+  section.setAttribute("style", "height:auto; width:100%; border:0px solid blue;");
   innerMain.appendChild(section);
-
-  let articl = document.createElement("article");
-  articl.setAttribute("style", "height:50vh; width:50%; border:5px solid blue;");
-  innerMain.appendChild(articl);
-
+  
   //LIST STRACTURE
   let unOrderd = document.createElement("ul");
   unOrderd.setAttribute("style", "height:auto; width:100%; padding-left:0; border:0px solid green;");
